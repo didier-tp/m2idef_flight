@@ -11,8 +11,8 @@
 	      <!-- provider = technologie qui implémente JPA (vrai code de EntityManager) -->
 	      
 	        
-	         <class>com.m2i.entity.Client</class>
-	         
+	         <class>com.m2i.entity.Vol</class>
+	         <class>com.m2i.entity.Localite</class>
 	         
 	    
 	    <properties>

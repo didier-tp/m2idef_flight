@@ -11,10 +11,15 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="Vol")
+@NamedQueries({
+  @NamedQuery(name="Vol.findVolsByDeparture", query="SELECT v FROM Vol v WHERE v.depart.localite.ville = :ptown")
+})
 public class Vol {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
