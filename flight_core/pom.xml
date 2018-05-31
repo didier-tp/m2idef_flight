@@ -6,4 +6,76 @@
     <version>0.0.1-SNAPSHOT</version>
   </parent>
   <artifactId>flight_core</artifactId>
+  
+  
+  <properties>
+     <hibernate.version>5.3.0.Final</hibernate.version>
+  </properties>
+  
+  <dependencies>
+  
+  <dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-orm</artifactId>
+    <version>${spring.version}</version>
+  </dependency>
+  <!-- spring-core , spring-tx , seront indirectement téléchargés -->
+  <dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-context</artifactId>
+    <version>${spring.version}</version>
+  </dependency>
+  
+  <dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-test</artifactId>
+    <version>${spring.version}</version>
+    <scope>test</scope>
+  </dependency>
+  
+  <dependency>
+    <groupId>junit</groupId>
+    <artifactId>junit</artifactId>
+    <version>4.12</version>
+    <scope>test</scope>
+  </dependency>
+  
+   <dependency>
+	    <groupId>org.slf4j</groupId>
+	    <artifactId>slf4j-log4j12</artifactId>
+	    <version>1.7.25</version>
+	</dependency>
+  
+  <dependency>
+    <groupId>org.hibernate</groupId>
+    <artifactId>hibernate-core</artifactId>
+    <version>${hibernate.version}</version>
+</dependency>
+   <!-- dans  version 5.3.x , hibernate-entity-manager (JPA) est intégré
+        dans hibernate-core -->
+  
+  <!--  driver jdbc pour mysql -->
+  <dependency>
+    <groupId>mysql</groupId>
+    <artifactId>mysql-connector-java</artifactId>
+    <version>5.1.46</version>
+</dependency>
+
+ <!--  driver jdbc + moteur pour H2 (base 100% java pour test rapide) -->
+<dependency>
+    <groupId>com.h2database</groupId>
+    <artifactId>h2</artifactId>
+    <version>1.4.197</version>
+</dependency>
+
+<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.9.4</version>
+			 <!-- java vers json avec JsonIgnore -->
+      </dependency>
+  
+  
+  </dependencies>
+  
 </project>
