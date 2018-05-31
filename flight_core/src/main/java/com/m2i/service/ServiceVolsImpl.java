@@ -30,7 +30,8 @@ public class ServiceVolsImpl implements IServiceVols {
 
 	@Override
 	public List<Vol> rechercherVolsAuDepart(String ville, Date date) {
-		return daoVols.findVolsByDeparture(ville); //date a prendre en compte dans future version
+		//return daoVols.findVolsByDeparture(ville); //date a prendre en compte dans future version
+		return daoVols.findVolsByDateDepart(date);
 	}
 
 }

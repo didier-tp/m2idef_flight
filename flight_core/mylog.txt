@@ -92,3 +92,6 @@ Caused by: java.io.FileNotFoundException: class path resource [configSpring.xml]
 	at org.springframework.core.io.ClassPathResource.getInputStream(ClassPathResource.java:172)
 	at org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:330)
 	... 37 more
+2018-05-31 13:45:57,134 ERROR main org.hibernate.engine.jdbc.spi.SqlExceptionHelper - La fonction "DATE" na pas été trouvée
+Function {0} not found; SQL statement:
+select vol0_.num as num1_1_, vol0_.dateTimeArrivee as dateTime2_1_, vol0_.refLocArrivee as refLocAr5_1_, vol0_.dateTimeDepart as dateTime3_1_, vol0_.refLocDepart as refLocDe6_1_, vol0_.prix as prix4_1_ from Vol vol0_ where DATE(vol0_.dateTimeDepart)=? [90022-197]

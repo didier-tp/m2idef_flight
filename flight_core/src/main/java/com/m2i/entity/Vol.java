@@ -18,7 +18,8 @@ import javax.persistence.Table;
 @Entity
 @Table(name="Vol")
 @NamedQueries({
-  @NamedQuery(name="Vol.findVolsByDeparture", query="SELECT v FROM Vol v WHERE v.depart.localite.ville = :ptown")
+  @NamedQuery(name="Vol.findVolsByDeparture", query="SELECT v FROM Vol v WHERE v.depart.localite.ville = :ptown"),
+  @NamedQuery(name="Vol.findVolsByDateDepart", query="SELECT v FROM Vol v WHERE TO_DATE(v.depart.dateTime, 'YYYY-MM-dd')  = :pdate")
 })
 public class Vol {
 	@Id

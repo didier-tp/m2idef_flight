@@ -13,6 +13,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import com.m2i.entity.Localite;
 import com.m2i.entity.Vol;
 import com.m2i.service.IServiceVols;
+import com.m2i.util.MyDateTimeUtil;
 
 @RunWith(SpringJUnit4ClassRunner.class)//necessite spring-test dans pom.xml
 @ContextConfiguration(locations={"/beans.xml"}) //charge qu'une seule fois!!!
@@ -30,7 +31,8 @@ public class VolTest {
 	
 	@Test
 	public void testRechercherVolsAuDepart(){
-		List<Vol> listeVols = serviceVols.rechercherVolsAuDepart("Paris", new Date());
+		Date dateDepartRecherchee = MyDateTimeUtil.dateFromString("2018-09-20");
+		List<Vol> listeVols = serviceVols.rechercherVolsAuDepart("Paris", dateDepartRecherchee);
 		Assert.assertTrue(listeVols.size()>0);
 		for(Vol v : listeVols){
 			System.out.println("\t" + v);
