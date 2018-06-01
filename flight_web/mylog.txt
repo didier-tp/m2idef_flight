@@ -1,0 +1,6 @@
+2018-06-01 13:16:53,985 INFO main com.m2i.test.WsRestIT - json listeVols via rest: [{"num":3,"prix":80.0,"depart":{"localite":{"id":1,"ville":"Paris","aeroport":"Paris-Orly"},"dateTime":1537438800000},"arrivee":{"localite":{"id":4,"ville":"Nice","aeroport":"Nice-"},"dateTime":1537443000000}}]
+2018-06-01 13:16:54,126 INFO main com.m2i.test.WsRestIT - java listeComptes via rest: [Lcom.m2i.entity.Vol;@657c8ad9
+2018-06-01 14:15:20,936 INFO main com.m2i.test.WsRestIT - json listeVols via rest: [{"num":3,"prix":80.0,"depart":{"localite":{"id":1,"ville":"Paris","aeroport":"Paris-Orly"},"dateTime":1537438800000},"arrivee":{"localite":{"id":4,"ville":"Nice","aeroport":"Nice-"},"dateTime":1537443000000}}]
+2018-06-01 14:15:21,061 INFO main com.m2i.test.WsRestIT - java listeComptes via rest: [Lcom.m2i.entity.Vol;@657c8ad9
+2018-06-01 14:33:15,347 INFO main com.m2i.test.WsRestIT - json listeVols via rest: [{"num":3,"prix":80.0,"depart":{"localite":{"id":1,"ville":"Paris","aeroport":"Paris-Orly"},"dateTime":1537438800000},"arrivee":{"localite":{"id":4,"ville":"Nice","aeroport":"Nice-"},"dateTime":1537443000000}}]
+2018-06-01 14:33:15,489 INFO main com.m2i.test.WsRestIT - java listeComptes via rest: [Lcom.m2i.entity.Vol;@657c8ad9

@@ -16,16 +16,24 @@ import com.m2i.entity.Vol;
 public class DaoVolsJpa extends DaoGenericJpaImpl<Vol,Long> implements IDaoVols {
 
 	@Override
-	public List<Vol> findVolsByDeparture(String town) {
-		return em.createNamedQuery("Vol.findVolsByDeparture",Vol.class)
-                 .setParameter("ptown", town)
+	public List<Vol> findVolsByVilleDepart(String town) {
+		return em.createNamedQuery("Vol.findVolsByVilleDepart",Vol.class)
+                 .setParameter("pTown", town)
                  .getResultList();
 	}
 	
 	@Override
 	public List<Vol> findVolsByDateDepart(Date dateDepart) {
 		return em.createNamedQuery("Vol.findVolsByDateDepart",Vol.class)
-                 .setParameter("pdate", dateDepart)
+                 .setParameter("pDate", dateDepart)
+                 .getResultList();
+	}
+	
+	@Override
+	public List<Vol> findVolsByDateAndVilleDepart(Date dateDepart, String ville) {
+		return em.createNamedQuery("Vol.findVolsByDateAndVilleDepart",Vol.class)
+                 .setParameter("pDate", dateDepart)
+                 .setParameter("pTown", ville)
                  .getResultList();
 	}
 	

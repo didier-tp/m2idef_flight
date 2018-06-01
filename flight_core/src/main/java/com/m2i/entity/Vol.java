@@ -17,11 +17,17 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="Vol")
+
+//NB: avec H2 et ORACLE : TO_DATE(v.depart.dateTime, 'YYYY-MM-dd')
+//    avec MYSQL : STR_TO_DATE(v.depart.dateTime, '%Y-%m-%d')
+
 @NamedQueries({
-  @NamedQuery(name="Vol.findVolsByDeparture", 
-		  query="SELECT v FROM Vol v WHERE v.depart.localite.ville = :ptown"),
+  @NamedQuery(name="Vol.findVolsByVilleDepart", 
+		  query="SELECT v FROM Vol v WHERE v.depart.localite.ville = :pTown"),
   @NamedQuery(name="Vol.findVolsByDateDepart", 
-          query="SELECT v FROM Vol v WHERE TO_DATE(v.depart.dateTime, 'YYYY-MM-dd')  = :pdate")
+          query="SELECT v FROM Vol v WHERE TO_DATE(v.depart.dateTime, 'YYYY-MM-dd')  = :pDate"),
+  @NamedQuery(name="Vol.findVolsByDateAndVilleDepart", 
+  query="SELECT v FROM Vol v WHERE v.depart.localite.ville = :pTown AND TO_DATE(v.depart.dateTime, 'YYYY-MM-dd')  = :pDate")
 })
 public class Vol {
 	@Id

@@ -1,0 +1,80 @@
+   <html >
+    <head>
+	<script src="jquery-2.2.1.js"></script>
+    <script>
+	  var volList;
+	  var villeDepart;
+	  var dateDepart;
+	  
+	  function strDateTimeToJsDate(strDateTime){
+		  var dateTime = Number(strDateTime);
+		  var d = new Date();
+		  d.setTime(dateTime);
+		  return d;
+	  }
+	  
+	  function formatJsAsString(jsDate){
+		  var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+		  return jsDate.toLocaleDateString("fr-FR", options);
+	  }
+	  
+	  function strDateTimeToStrDate(strDateTime){
+		  return formatJsAsString(strDateTimeToJsDate(strDateTime));
+	  }
+	  
+      $(function() {
+	 	  
+	    
+		$('#btnSearch').on('click',function(){
+		  
+			villeDepart = $('#txtVilleDepart').val();
+			dateDepart = $('#txtDateDepart').val();
+		
+			$.ajax({
+		           type: "GET",
+		           url: "mvc/rest/vols/byCriteria?villeDepart=" + villeDepart
+		        		         +"&dateDepart=" + dateDepart,
+				   success: function (data,status,xhr) {
+		               if (data) {
+		            	   $('#tabVols').empty();
+		            	   $('#tabVols').append('</tr><tr><th>num</th><th>prix</th><th>aeroport_depart</th><th>date_depart</th><th>aeroport_arrivee</th><th>date_arrivee</th></tr>');
+					       //alert(JSON.stringify(data));
+					       VolList = data;
+						   for(index in VolList){
+						       var vol=VolList[index];
+						       //alert(JSON.stringify(cpt));
+						       $('#tabVols').append('<tr><td>'+ vol.num + '</td><td>' + vol.prix + '</td><td>' + vol.depart.localite.aeroport +'</td><td>'+ strDateTimeToStrDate(vol.depart.dateTime)+'</td><td>'+vol.arrivee.localite.aeroport+'</td><td>'+strDateTimeToStrDate(vol.arrivee.dateTime) +'</td></tr>');					   
+						   }
+						   $("#spanMsg").html( "WebService result (JSON): " + JSON.stringify(VolList) ) ;
+		               } else {
+		                   $("#spanMsg").html("Cannot GET Vols  !");
+		               }
+		           },
+		           error: function(xhr, status, error){
+		        	   $("#spanMsg").html( "status:" + status + " error : " + error ) ;
+		           }
+				   });
+	
+			
+			
+		});
+		
+      }); 
+   </script>
+   </head>
+     <body>
+	  
+	  villeDepart : <input id="txtVilleDepart" type='text' value="Paris"/><br/>
+	  dateDepart : <input id="txtDateDepart" type='text' value="2018-09-20"/><br/>
+	  <input type='button' value="rechercher vols" id="btnSearch"/> <br/>
+	  <span id="spanMsg"></span> <br/>
+	  <hr/>
+	  liste vols : <table border="1" id="tabVols"> 
+	                      <tr><th>numero</th><th>prix</th><th>aeroport_depart</th><th>date_depart</th><th>aeroport_arrivee</th><th>date_arrivee</th></tr>
+	                   </table>
+	  <hr/>
+	   <a href="#">.... (js/ajax + WS REST POST)</a>
+	  <hr/>
+	  <a href="index.html">retour vers index.html</a>
+	  </body>
+     </html>
