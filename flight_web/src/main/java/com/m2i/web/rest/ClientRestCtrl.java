@@ -53,6 +53,7 @@ public class ClientRestCtrl {
 	    //                           "codePostal": "75001", "ville": "Paris" }
         //          }                      
 	    // }
+	    // En retour , meme structure avec les id en plus (auto_incr)
 		@RequestMapping(value="/newLoginWithClient" , method=RequestMethod.POST)
 		ResponseEntity<Login> ajouterCompteClientAvecLogin( @RequestBody Login loginWithClient ){
 			try {

@@ -4,6 +4,22 @@
     <script>
     
     var auth = { username : null, password : null } ;
+    
+    var login = {
+        username: "username",
+        password: "pwd",
+        client: {
+            nom: "nom",
+            prenom: "prenom",
+            phoneNumber: "0102030405",
+            email: "prenom.nom@iciOulaBas.fr",
+            adresse: {
+                rue: "rue 1bis",
+                codePostal: "75001",
+                ville: "Paris"
+            }
+        }
+    }
 	    
       $(function() {
 	 	  
@@ -37,24 +53,64 @@
 		           error: function(xhr, status, error){
 		        	   $("#spanMsg").html( "status:" + status + " error : " + error ) ;
 		           }
-				   });
-	
+				   });//fin $.ajax
+		});//fin $('#btnLogin').on('click',function(){
 			
-			
-		});
+		$('#btnNewLogin').on('click',function(){
+		    login = { client : { adresse : {}}};
+			login.username = $('#txtNewUsername').val();
+			login.password = $('#txtNewPassword').val();
+			login.client.nom = $('#txtNom').val();
+			login.client.prenom = $('#txtPrenom').val();
+			login.client.phoneNumber = $('#txtPhoneNumber').val();
+			login.client.email = $('#txtEmail').val();
+			login.client.adresse.rue = $('#txtRue').val();
+			login.client.adresse.codePostal = $('#txtCodePostal').val();
+			login.client.adresse.ville = $('#txtVille').val();
+		
+			$.ajax({
+		           type: "POST",
+		           url: "mvc/rest/clients/newLoginWithClient",
+		           contentType : "application/json",
+		           dataType : "json",
+		           data : JSON.stringify(login),
+				   success: function (data,status,xhr) {
+		               if (data) {
+					       login = data;
+						   $("#spanMsgNew").html( "WebService result (JSON): " + JSON.stringify(login) ) ;
+		               } else {
+		            	   $("#spanMsgNew").html("echec newLoginWithClient");
+		               }
+		           },
+		           error: function(xhr, status, error){
+		        	   $("#spanMsgNew").html( "status:" + status + " error : " + error ) ;
+		           }
+				   });//fin $.ajax
+		});//fin $('#btnNewLogin').on('click',function(){
 		
       }); 
    </script>
    </head>
      <body>
-	  
+	  <h3> login client existant </h3>
 	  username : <input id="txtUsername" type='text' value="alex-therieur"/><br/>
 	  password : <input id="txtPassword" type='text' value="pwd007"/><br/>
 	  <input type='button' value="login" id="btnLogin"/> <br/>
 	  <span id="spanMsg"></span> <br/>
 	  infos client authentifié : <div id="divCli"></div> <br/>
 	  <hr/>
-	   <a href="#">.... (js/ajax + WS REST POST)</a>
+	   <h3> inscription nouveau client </h3>
+	   new_username : <input id="txtNewUsername" type='text' value="username"/><br/>
+	   new_password : <input id="txtNewPassword" type='text' value="pwd"/><br/>
+	   nom : <input id="txtNom" type='text' value="nom"/><br/>
+	   prenom : <input id="txtPrenom" type='text' value="prenom"/><br/>
+	   phoneNumber : <input id="txtPhoneNumber" type='text' value="0102030405"/><br/>
+	   email : <input id="txtEmail" type='text' value="prenom.nom@xyz.fr"/><br/>
+	   rue : <input id="txtRue" type='text' value="rue 1"/><br/>
+	   codePostal : <input id="txtCodePostal" type='text' value="75000"/><br/>
+	   ville : <input id="txtVille" type='text' value="Paris"/><br/>
+	   <input type='button' value="new login" id="btnNewLogin"/> <br/>
+	   <span id="spanMsgNew"></span> <br/>
 	  <hr/>
 	  <a href="index.html">retour vers index.html</a>
 	  </body>

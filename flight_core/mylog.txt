@@ -66,3 +66,7 @@ insert into Login (password, username, id) values (?, ?, ?) [23505-197]
 2018-06-13 14:50:04,742 ERROR main org.hibernate.internal.ExceptionMapperStandardImpl - HHH000346: Error during managed flush [org.hibernate.exception.ConstraintViolationException: could not execute statement]
 2018-06-13 14:50:13,204 ERROR main org.hibernate.internal.ExceptionMapperStandardImpl - HHH000346: Error during managed flush [org.hibernate.TransientPropertyValueException: object references an unsaved transient instance - save the transient instance before flushing : com.m2i.entity.Client.adresse -> com.m2i.entity.Adresse]
 2018-06-13 14:51:10,366 ERROR main org.hibernate.internal.ExceptionMapperStandardImpl - HHH000346: Error during managed flush [org.hibernate.TransientPropertyValueException: object references an unsaved transient instance - save the transient instance before flushing : com.m2i.entity.Client.adresse -> com.m2i.entity.Adresse]
+2018-06-13 15:00:22,657 ERROR main org.hibernate.engine.jdbc.spi.SqlExceptionHelper - Violation dindex unique ou clé primaire: {0}
+Unique index or primary key violation: {0}; SQL statement:
+insert into Login (password, username, id) values (?, ?, ?) [23505-197]
+2018-06-13 15:00:22,657 ERROR main org.hibernate.internal.ExceptionMapperStandardImpl - HHH000346: Error during managed flush [org.hibernate.exception.ConstraintViolationException: could not execute statement]
