@@ -1,5 +1,6 @@
 package com.m2i.entity;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -110,6 +111,13 @@ public class Resa {
 
 	public void setListePassagers(List<Personne> listePassagers) {
 		this.listePassagers = listePassagers;
+	}
+	
+	public void addPassager(Personne p){
+		if (listePassagers==null){
+			listePassagers = new ArrayList<Personne>();
+		}
+		listePassagers.add(p);
 	}
 	
 	

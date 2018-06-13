@@ -23,7 +23,7 @@ public class ResaTest {
 		Resa resaRelu = serviceResa.rechercherResaById(resa.getIdResa());
 		System.out.println("nouvelle resa: " + resaRelu);
 		System.out.println("vol de nouvelle resa: " + resaRelu.getVol());
-		System.out.println("client de nouvelle resa: " + resaRelu.getClient());
+		//System.out.println("client de nouvelle resa: " + resaRelu.getClient());
 	}
 	
 	

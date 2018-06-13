@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.m2i.dao.IDaoClient;
 import com.m2i.dao.IDaoResa;
 import com.m2i.dao.IDaoVols;
+import com.m2i.entity.Client;
 import com.m2i.entity.Resa;
 
 @Service 
@@ -44,8 +45,10 @@ public class ServiceResaImpl implements IServiceResa {
 		Resa  resa  = null;
 		resa = new Resa();
 		resa.setDateResa(new Date());
-		resa.setClient(daoClient.findByKey(numCli));
+		Client cli = daoClient.findByKey(numCli);
+		resa.setClient(cli);
 		resa.setVol(daoVols.findByKey(numVol));
+		resa.addPassager(cli);//par defaut client en tant que premier (et pour au debut unique passager)
 		resa = daoResa.insert(resa);
 		return resa;
 	}
