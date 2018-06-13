@@ -26,7 +26,7 @@ public class VolRestCtrl {
 	//sera appelé en HTTP / GET avec l' URL suivante:
 	// http://localhost:8080/flight_Web/mvc/rest/vols/byCriteria?villeDepart=Paris&dateDepart=2018-09-20
 	@RequestMapping(value="/byCriteria" , method=RequestMethod.GET)
-	List<Vol> getComptesDuClient( @RequestParam(value="villeDepart",required=false) String villeDepart ,
+	List<Vol> getVolsByCriteria( @RequestParam(value="villeDepart",required=false) String villeDepart ,
 			                      @RequestParam(value="dateDepart",required=false) String strDateDepart ){
 		Date dateDepartRecherchee = null;
 		if(villeDepart!=null && villeDepart.isEmpty()) villeDepart=null;

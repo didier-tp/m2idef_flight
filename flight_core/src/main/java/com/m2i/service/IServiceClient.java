@@ -23,4 +23,6 @@ public interface IServiceClient {
 	public Client insertClientWithLogin(Client cli, Login login);
 	public void supprimerClientWithLogin(Long idClient);
 	//public Client rechercherClientAvecResa(Long id);
+	
+	public Login loginByUsernameAndPassword(String username, String password);
 }

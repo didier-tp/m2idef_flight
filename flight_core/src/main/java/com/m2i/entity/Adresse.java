@@ -7,6 +7,8 @@ import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 //@Entity ou @Embeddable
 @Entity 
 @Table(name="Adresse")//au sens AdresseDuClient avec correspondance de pk
@@ -25,6 +27,7 @@ public class Adresse {
 	
 	@OneToOne(optional=true)
 	@PrimaryKeyJoinColumn
+	@JsonIgnore
 	private Personne personne; //avec get/set
 	
 	@Override

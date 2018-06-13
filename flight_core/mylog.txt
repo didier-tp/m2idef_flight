@@ -24,3 +24,31 @@ insert into Login (password, username, id) values (?, ?, ?) [23505-197]
 Unique index or primary key violation: {0}; SQL statement:
 insert into Login (password, username, id) values (?, ?, ?) [23505-197]
 2018-06-01 14:51:21,887 ERROR main org.hibernate.internal.ExceptionMapperStandardImpl - HHH000346: Error during managed flush [org.hibernate.exception.ConstraintViolationException: could not execute statement]
+2018-06-11 16:41:18,862 ERROR main org.hibernate.engine.jdbc.spi.SqlExceptionHelper - Violation dindex unique ou clé primaire: {0}
+Unique index or primary key violation: {0}; SQL statement:
+insert into Login (password, username, id) values (?, ?, ?) [23505-197]
+2018-06-11 16:41:18,863 ERROR main org.hibernate.internal.ExceptionMapperStandardImpl - HHH000346: Error during managed flush [org.hibernate.exception.ConstraintViolationException: could not execute statement]
+2018-06-13 09:24:54,755 ERROR main org.hibernate.engine.jdbc.spi.SqlExceptionHelper - Violation dindex unique ou clÃ© primaire: {0}
+Unique index or primary key violation: {0}; SQL statement:
+insert into Login (password, username, id) values (?, ?, ?) [23505-197]
+2018-06-13 09:24:54,760 ERROR main org.hibernate.internal.ExceptionMapperStandardImpl - HHH000346: Error during managed flush [org.hibernate.exception.ConstraintViolationException: could not execute statement]
+2018-06-13 10:16:44,025 ERROR main org.hibernate.engine.jdbc.spi.SqlExceptionHelper - Violation dindex unique ou clé primaire: {0}
+Unique index or primary key violation: {0}; SQL statement:
+insert into Login (password, username, id) values (?, ?, ?) [23505-197]
+2018-06-13 10:16:44,025 ERROR main org.hibernate.internal.ExceptionMapperStandardImpl - HHH000346: Error during managed flush [org.hibernate.exception.ConstraintViolationException: could not execute statement]
+2018-06-13 10:24:36,049 ERROR main org.hibernate.engine.jdbc.spi.SqlExceptionHelper - Violation dindex unique ou clé primaire: {0}
+Unique index or primary key violation: {0}; SQL statement:
+insert into Login (password, username, id) values (?, ?, ?) [23505-197]
+2018-06-13 10:24:36,049 ERROR main org.hibernate.internal.ExceptionMapperStandardImpl - HHH000346: Error during managed flush [org.hibernate.exception.ConstraintViolationException: could not execute statement]
+2018-06-13 10:36:45,680 ERROR main org.hibernate.engine.jdbc.spi.SqlExceptionHelper - Violation dindex unique ou clé primaire: {0}
+Unique index or primary key violation: {0}; SQL statement:
+insert into Login (password, username, id) values (?, ?, ?) [23505-197]
+2018-06-13 10:36:45,680 ERROR main org.hibernate.internal.ExceptionMapperStandardImpl - HHH000346: Error during managed flush [org.hibernate.exception.ConstraintViolationException: could not execute statement]
+2018-06-13 10:42:46,984 ERROR main org.hibernate.engine.jdbc.spi.SqlExceptionHelper - Violation dindex unique ou clÃ© primaire: {0}
+Unique index or primary key violation: {0}; SQL statement:
+insert into Login (password, username, id) values (?, ?, ?) [23505-197]
+2018-06-13 10:42:46,984 ERROR main org.hibernate.internal.ExceptionMapperStandardImpl - HHH000346: Error during managed flush [org.hibernate.exception.ConstraintViolationException: could not execute statement]
+2018-06-13 10:55:57,328 ERROR main org.hibernate.engine.jdbc.spi.SqlExceptionHelper - Violation dindex unique ou clé primaire: {0}
+Unique index or primary key violation: {0}; SQL statement:
+insert into Login (password, username, id) values (?, ?, ?) [23505-197]
+2018-06-13 10:55:57,328 ERROR main org.hibernate.internal.ExceptionMapperStandardImpl - HHH000346: Error during managed flush [org.hibernate.exception.ConstraintViolationException: could not execute statement]

@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity 
 @DiscriminatorValue("Client")
 //avec dans super classe "Compte":
@@ -16,6 +18,7 @@ public class Client extends Personne{
 	
 	
 	@OneToOne(mappedBy="client")
+	@JsonIgnore
 	private Login login;
 	
 

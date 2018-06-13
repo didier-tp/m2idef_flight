@@ -75,4 +75,27 @@ public class ServiceClientImpl implements IServiceClient {
 		return daoClient.findClientByName(nom);
 	}
 
+
+
+	@Override
+	public Login loginByUsernameAndPassword(String username, String password) {
+		Login login = null;
+		try {
+			login= daoLogin.findLoginByUsername(username);
+			if(login!=null && !login.getPassword().equals(password)){
+				login=null; //wrong password;
+			}
+			if(login==null){
+				throw new RuntimeException("invalid username or password");
+			}
+			if(login !=null){
+				login.getClient().getId(); //appel pour charger en mémoire l'info client rattachée au login
+			}
+		} catch (Exception e) {
+			//e.printStackTrace();
+			throw new RuntimeException("echec loginByUsernameAndPassword :" ,e);
+		}
+		return login;
+	}
+
 }

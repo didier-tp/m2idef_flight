@@ -11,7 +11,6 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.m2i.entity.Client;
 import com.m2i.entity.Login;
-import com.m2i.entity.Resa;
 import com.m2i.service.IServiceClient;
 
 @RunWith(SpringJUnit4ClassRunner.class)//necessite spring-test dans pom.xml
@@ -77,6 +76,16 @@ public class ClientTest {
 			Assert.fail("comportement non transactionnel " 
 					+" (action partielle enregistree en base)");
 		}
+	}
+	
+	@Test
+	public void testLoginByUsernameAndPassword(){
+		Login login = serviceClient.loginByUsernameAndPassword("alex-therieur", "pwd007");
+		Assert.assertTrue(login!=null);
+		System.out.println("testLoginByUsernameAndPassword, login= " + login );
+		Assert.assertTrue(login.getClient()!=null);
+		System.out.println("testLoginByUsernameAndPassword, client= " + login.getClient() );
+		
 	}
 
 	
