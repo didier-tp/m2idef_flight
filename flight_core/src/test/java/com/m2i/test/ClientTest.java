@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import com.m2i.entity.Adresse;
 import com.m2i.entity.Client;
 import com.m2i.entity.Login;
 import com.m2i.service.IServiceClient;
@@ -38,6 +39,12 @@ public class ClientTest {
 	@Test
 	public void testValidInsertClientWithLogin(){
 		Client nouveauClient = new Client(null,"nomXx", "prenomYy");
+		Adresse nouvelleAdresse = new Adresse();
+		nouvelleAdresse.setIdAdresse(null);
+		nouvelleAdresse.setRue("rue1");
+		nouvelleAdresse.setCodePostal("75000");
+		nouvelleAdresse.setVille("Paris");
+		nouveauClient.setAdresse(nouvelleAdresse);
 		Login nouveauLogin = new Login(null,"usernameXx","passwordYy");
 		Client savedClientWithSavedLogin = 
 				serviceClient.insertClientWithLogin(nouveauClient, nouveauLogin);
@@ -52,6 +59,8 @@ public class ClientTest {
 		//suppression a la fin pour pouvoir relancer le test plusieurs fois:
 		serviceClient.supprimerClientWithLogin(nouvelId);
 	}
+	
+	
 	
 	@Test
 	public void testInValidInsertClientWithLogin(){

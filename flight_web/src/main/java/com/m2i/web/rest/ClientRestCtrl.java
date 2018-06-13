@@ -44,6 +44,27 @@ public class ClientRestCtrl {
 		return new ResponseEntity<Auth>(auth,HttpStatus.OK);
 	}
 	
+	    //sera appelé en HTTP / POST avec l' URL suivante:
+		// http://localhost:8080/flight_web/mvc/rest/clients/newLoginWithClient
+		//with loginWithClient = { "username" : "toto" , "password": "pwd_toto" ,
+	    // client =   { "nom": "Therieur",   "prenom": "alex",   "phoneNumber": "0102030405",
+		//              "email": "alex-therieur@iciOulaBas.fr",
+        //            "adresse": {   "rue": "rue 1",   
+	    //                           "codePostal": "75001", "ville": "Paris" }
+        //          }                      
+	    // }
+		@RequestMapping(value="/newLoginWithClient" , method=RequestMethod.POST)
+		ResponseEntity<Login> ajouterCompteClientAvecLogin( @RequestBody Login loginWithClient ){
+			try {
+				Login login = loginWithClient;
+				Client cli = login.getClient();
+				serviceClient.insertClientWithLogin(cli, login);
+				return new ResponseEntity<Login>(login,HttpStatus.OK);
+			} catch (Exception e) {
+				return new ResponseEntity<Login>(HttpStatus.INTERNAL_SERVER_ERROR);
+			}
+		}
+	
 	
 }
 

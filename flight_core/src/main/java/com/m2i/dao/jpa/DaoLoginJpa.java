@@ -12,6 +12,8 @@ import com.m2i.entity.Login;
 @Transactional //en version spring
 public class DaoLoginJpa extends DaoGenericJpaImpl<Login,Long> implements IDaoLogin {
 	
+	
+
 	public Login findLoginByUsername(String username){
 	 
 	 return em.createNamedQuery("Login.findByUsername",Login.class)
