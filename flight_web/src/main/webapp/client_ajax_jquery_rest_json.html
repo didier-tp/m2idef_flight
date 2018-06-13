@@ -1,0 +1,61 @@
+   <html >
+    <head>
+	<script src="jquery-2.2.1.js"></script>
+    <script>
+    
+    var auth = { username : null, password : null } ;
+	    
+      $(function() {
+	 	  
+	    
+		$('#btnLogin').on('click',function(){
+			auth = { username : null, password : null } ;
+			auth.username = $('#txtUsername').val();
+			auth.password = $('#txtPassword').val();
+		
+			$.ajax({
+		           type: "POST",
+		           url: "mvc/rest/clients/auth",
+		           contentType : "application/json",
+		           dataType : "json",
+		           data : JSON.stringify(auth),
+				   success: function (data,status,xhr) {
+		               if (data) {
+					       auth = data;
+						   //$("#spanMsg").html( "WebService result (JSON): " + JSON.stringify(auth) ) ;
+						   console.log(JSON.stringify(auth));
+					       $("#spanMsg").html(auth.message);
+					       if(auth.status==true){
+					    	   $("#divCli").html(JSON.stringify(auth.client));
+					       }
+					       
+		               } else {
+		                   //$("#spanMsg").html("Cannot GET auth  !");
+		            	   $("#spanMsg").html("echec authentification");
+		               }
+		           },
+		           error: function(xhr, status, error){
+		        	   $("#spanMsg").html( "status:" + status + " error : " + error ) ;
+		           }
+				   });
+	
+			
+			
+		});
+		
+      }); 
+   </script>
+   </head>
+     <body>
+	  
+	  username : <input id="txtUsername" type='text' value="alex-therieur"/><br/>
+	  password : <input id="txtPassword" type='text' value="pwd007"/><br/>
+	  <input type='button' value="login" id="btnLogin"/> <br/>
+	  <span id="spanMsg"></span> <br/>
+	  infos client authentifié : <div id="divCli"></div> <br/>
+	  <hr/>
+	   <a href="#">.... (js/ajax + WS REST POST)</a>
+	  <hr/>
+	  <a href="index.html">retour vers index.html</a>
+	  </body>
+     </html>

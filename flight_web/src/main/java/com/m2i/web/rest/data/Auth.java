@@ -2,6 +2,17 @@ package com.m2i.web.rest.data;
 
 import com.m2i.entity.Client;
 
+/*
+ * DTO = Data Transfert Object
+ * classe de données (non directement persistante)
+ * véhiculée entre WebServiceRest et client (js ou ...)
+ * ----
+ * ici convertie en JSON dans le cadre des WS REST
+ * ---
+ * DTO = classe spécifique au dialogues "WebService"
+ *  à ranger dans package rest.data ou rest.dto 
+ */
+
 //Authentification à vérifier
 public class Auth {
 	private String username;
